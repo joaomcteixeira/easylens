@@ -161,10 +161,15 @@ def main(
             else:
                 pix_arrays.append(np.array(img_channel))
 
-        fig_size = (
-            pix_arrays[0].shape[1] / 1000,
-            pix_arrays[0].shape[0] / 1000,
-            )
+        try:
+            fig_size = (
+                pix_arrays[0].shape[1] / 1000,
+                pix_arrays[0].shape[0] / 1000,
+                )
+        except IndexError:
+            print(f'> warning: channels {channel} does not exist for index {i} - skiping')
+            continue
+
         plt.figure(figsize=fig_size, dpi=100)
 
         black_background = np.full(pix_arrays[0].shape, 1)
@@ -187,6 +192,7 @@ def main(
         _fname = output_fmt.format(i, zindex, '-'.join(map(str, channels)))
         fname = Path(_fname).with_suffix('.png')
         plt.savefig(fname, dpi=1000, transparent=True)
+        print(f'> saved: {os.fspath(fname)}')
 
         plt.close()
         del img
