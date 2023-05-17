@@ -1,10 +1,10 @@
-sampleproject
+easylens
 =============
 
 .. testsetup::
 
-    from sampleproject import *
+    from easylens import *
 
-.. automodule:: sampleproject
+.. automodule:: easylens
     :members:
 

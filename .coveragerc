@@ -6,7 +6,7 @@ source =
 [run]
 branch = true
 source =
-    sampleproject
+    easylens
 parallel = true
 
 [report]

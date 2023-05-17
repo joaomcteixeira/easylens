@@ -3,8 +3,8 @@ Package interface.
 
 This is the main package interface.
 """
-from sampleproject import cli_int1
+from easylens import cli
 
 
 if __name__ == '__main__':
-    cli_int1.main()
+    cli.main()
